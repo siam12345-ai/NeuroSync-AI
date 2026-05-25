@@ -80,3 +80,7 @@ NeuroSync AI aims to solve these problems using Artificial Intelligence by provi
 ## Project Goal
 
 The goal of NeuroSync AI is to improve student productivity, focus, learning consistency, and academic performance through intelligent AI-driven behavioral analysis and adaptive learning support systems.
+## 🔗 Project Repository
+
+## GitHub Repository:  
+https://github.com/siam12345-ai/NeuroSync-AI
