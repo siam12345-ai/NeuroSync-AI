@@ -306,6 +306,8 @@ NeuroSync AI is an intelligent cognitive learning and human behavior analysis pl
 It improves learning effectiveness through:  
 - Personalized recommendations  
 - Behavioral insights  
-- Analytical reporting  
-
+- Analytical reporting
+- 
+- ## GitHub Repository:
+https://github.com/siam12345-ai/NeuroSync-AI
 ---
