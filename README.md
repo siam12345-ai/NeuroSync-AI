@@ -1,39 +1,31 @@
 # NeuroSync AI
 
-## Intelligent Cognitive Learning & Productivity Assistant
+## An Intelligent Cognitive Learning and Human Behavior Analysis System    
 
 ---
 
-## Team Information
+## 👥 Team Information
 
 ### Team Name
-CSE4104-7D-T01
+**CSE4104-7D-T01**
 
 ### Team Members
-Team Leader:Abu bakar Siam
-- Jeba Sabiha Promi
-- Md Nasiruddin Shael
-- Sefa Sultana
-
+* **Team Leader:** Abu Bakar Siam
+* Jeba Sabiha Promi
+* Md Nasiruddin Shael
+* Sefa Sultana
 
 ---
 
-## Project Description
-
+## 📌 Project Description
 NeuroSync AI is an AI-powered educational productivity and cognitive learning assistant system designed to improve student performance through intelligent behavioral analysis and adaptive learning support.
 
----
-
-## Problem Statement
-
-Modern students often struggle with concentration, productivity, study consistency, and time management. Existing educational systems mainly provide static learning resources but fail to intelligently analyze learning behavior and productivity patterns.
-
-NeuroSync AI aims to solve these problems using Artificial Intelligence by providing personalized learning recommendations, productivity analysis, and adaptive academic assistance.
+### Problem Statement
+Modern students often struggle with concentration, productivity, study consistency, and time management. Existing educational systems mainly provide static learning resources but fail to intelligently analyze learning behavior and productivity patterns. NeuroSync AI aims to solve these problems using Artificial Intelligence by providing personalized learning recommendations, productivity analysis, and adaptive academic assistance.
 
 ---
 
-## Proposed Features
-
+## 🚀 Proposed Features
 - AI Chatbot Assistant
 - Smart Study Planner
 - Productivity Dashboard
@@ -46,268 +38,97 @@ NeuroSync AI aims to solve these problems using Artificial Intelligence by provi
 
 ---
 
-## Technology Stack
+## 💻 Technology Stack
 
 ### Frontend
-- React.js
-- Next.js
+- React.js / Next.js
 - Tailwind CSS
 
-### Backend
-- Node.js
-- Express.js
+### Backend & AI
+- Node.js / Express.js
+- Python AI Modules
+- OpenAI & Gemini API / Hugging Face
 
 ### Database
-- MongoDB
-- PostgreSQL
-
-### AI Integration
-- OpenAI API
-- Gemini API
-- Hugging Face
-- Python AI Modules
+- MongoDB / PostgreSQL
 
 ---
 
-## Development Tools
-
-- VS Code
-- GitHub
-- Postman
-- Docker
-
----
-
-## Project Goal
-
-The goal of NeuroSync AI is to improve student productivity, focus, learning consistency, and academic performance through intelligent AI-driven behavioral analysis and adaptive learning support systems.
-## 🔗 Project Repository
-
-## GitHub Repository:  
-https://github.com/siam12345-ai/NeuroSync-AI
-
-
-
-# NeuroSync AI  
-### Intelligent Cognitive Learning & Human Behavior Analysis System  
+## 📂 Repository Structure
+```text
+NeuroSync-AI/
+├── frontend/           # React.js/Next.js User Interface
+├── backend/            # Node.js API & Business Logic
+├── database/           # Database scripts and schemas
+├── documentation/      # SRS, API Docs, and Project Reports
+├── design/             # UI/UX, ERD, and Architecture Diagrams
+└── README.md           # Project Documentation
+```
 
 ---
 
-## 📌 Chapter 1: Introduction  
+## ⚙️ Project Setup Instructions
 
-### 1.1 Project Title  
-NeuroSync AI: An Intelligent Cognitive Learning and Human Behavior Analysis System  
+### Prerequisites
+Before running the project, ensure you have the following installed:
+- [Node.js](https://nodejs.org) (v18 or higher)
+- [MongoDB](https://mongodb.com) or [PostgreSQL](https://postgresql.org)
+- [Python](https://python.org) (v3.10+ for AI modules)
 
----
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file and add your environment variables:
+   ```env
+   PORT=5000
+   MONGO_URI=your_mongodb_connection_string
+   OPENAI_API_KEY=your_api_key
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### 1.2 Project Overview  
-NeuroSync AI is an AI-powered web-based platform designed to analyze cognitive learning patterns and human behavior.  
-
-The system provides:  
-- Personalized learning recommendations  
-- AI-assisted interactions  
-- Progress tracking  
-- Analytical reports for users, teachers, and administrators  
-
----
-
-### 1.3 Problem Statement  
-Traditional learning systems often fail to adapt to individual learning styles and behavioral patterns.  
-
-Students receive the same learning experience regardless of their cognitive strengths, weaknesses, or engagement levels.  
-
-NeuroSync AI aims to solve this problem through intelligent analysis and personalized recommendations.  
-
----
-
-### 1.4 Objectives  
-- Analyze cognitive learning performance  
-- Evaluate human behavioral patterns  
-- Generate AI-powered recommendations  
-- Provide personalized learning experiences  
-- Monitor learning progress  
-- Assist users through AI chat support  
-- Generate analytical reports  
-
----
-
-### 1.5 Scope  
-The system provides:  
-
-- User registration and authentication  
-- Cognitive analysis  
-- Behavior assessment  
-- Learning recommendations  
-- AI chatbot support  
-- Progress tracking  
-- Teacher monitoring  
-- Administrative management  
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd ../frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Next.js/React development server:
+   ```bash
+   npm run dev
+   ```
 
 ---
 
-## 📌 Chapter 2: Functional Requirements  
+## 📅 Development Planning & Roadmap
 
-- FR-01: Users can register using email and password  
-- FR-02: Users can log in securely  
-- FR-03: Users can manage their profiles  
-- FR-04: Users can access the dashboard  
-- FR-05: Users can submit learning data  
-- FR-06: System performs cognitive analysis  
-- FR-07: System performs behavior assessment  
-- FR-08: System generates learning recommendations  
-- FR-09: Users can interact with AI chat assistant  
-- FR-10: System generates reports  
-- FR-11: Users can view reports  
-- FR-12: Teachers can view student reports  
-- FR-13: Teachers can monitor AI outputs  
-- FR-14: Administrators can manage users  
-- FR-15: Administrators can view analytics  
-- FR-16: Administrators can control system settings  
-- FR-17: System stores user data  
-- FR-18: System retrieves stored data  
-- FR-19: System stores generated reports  
-- FR-20: System maintains activity history  
+### Phase 1: Requirements & System Design (Current)
+- [x] Finalize system architecture and repository structure.
+- [x] Prepare UI/UX wireframes and database ERD models.
+- [x] Set up baseline repository and basic documentation.
 
----
+### Phase 2: Core Backend & Database Implementation
+- [ ] Database configuration (MongoDB/PostgreSQL connections).
+- [ ] Authentication system (JWT-based user signup/login).
+- [ ] API implementation for Task Management and Smart Planner.
 
-## 📌 Chapter 3: Non-Functional Requirements  
+### Phase 3: Frontend Integration & AI Modules
+- [ ] Build responsive UI layouts using Tailwind CSS.
+- [ ] Connect frontend components with Backend REST APIs.
+- [ ] Integrate Python AI modules, OpenAI/Gemini APIs for chatbot and recommendations.
 
-- NFR-01: System should load pages within 3 seconds  
-- NFR-02: System should support responsive design  
-- NFR-03: Passwords must be securely encrypted  
-- NFR-04: System should use secure authentication  
-- NFR-05: System should support role-based access control  
-- NFR-06: System should be scalable  
-- NFR-07: System should be highly available  
-- NFR-08: Communication should use HTTPS  
-
----
-
-## 📌 Chapter 4: User Roles  
-
-### 👤 User  
-Responsibilities:  
-- Register and log in  
-- Submit learning data  
-- View reports  
-- Use AI chatbot  
-- Track learning progress  
-
----
-
-### 👨‍🏫 Teacher  
-Responsibilities:  
-- Monitor students  
-- View reports  
-- Review AI outputs  
-
----
-
-### 🛠 Admin  
-Responsibilities:  
-- Manage users  
-- View analytics  
-- Control system settings  
-
----
-
-### 🤖 AI Engine  
-Responsibilities:  
-- Cognitive analysis  
-- Behavior assessment  
-- Learning recommendation  
-- Smart chat response  
-
----
-
-## 📌 Chapter 5: Use Cases  
-
-### Use Case: User Login  
-- Actor: User  
-- Action: User enters credentials  
-- System Response: Validates credentials and grants access  
-
----
-
-### Use Case: Learning Data Input  
-- Actor: User  
-- Action: User submits learning-related information  
-- System Response: Stores data and starts analysis  
-
----
-
-### Use Case: AI Recommendation  
-- Actor: User  
-- Action: User requests recommendations  
-- System Response: Generates personalized learning suggestions  
-
----
-
-### Use Case: View Student Reports  
-- Actor: Teacher  
-- Action: Teacher selects a student report  
-- System Response: Displays report details  
-
----
-
-### Use Case: Manage Users  
-- Actor: Admin  
-- Action: Admin manages user accounts  
-- System Response: System updates user information  
-
----
-
-## 📌 Chapter 6: Database Design  
-
-### Entities  
-- USER  
-- ADMIN  
-- TEACHER  
-- AI_ANALYSIS  
-- CHAT_HISTORY  
-- LEARNING_RECORD  
-- REPORT  
-
----
-
-## 📌 Chapter 7: System Architecture  
-
-### Frontend  
-- React.js  
-- Next.js  
-- Tailwind CSS  
-
----
-
-### Backend  
-- Node.js  
-- Express.js  
-
----
-
-### Database  
-- PostgreSQL  
-- MongoDB  
-
----
-
-### AI Services  
-- OpenAI API  
-- Gemini API  
-- Hugging Face  
-- Python AI Modules  
-
----
-
-## 📌 Chapter 8: Conclusion  
-
-NeuroSync AI is an intelligent cognitive learning and human behavior analysis platform that combines modern web technologies and artificial intelligence.  
-
-It improves learning effectiveness through:  
-- Personalized recommendations  
-- Behavioral insights  
-- Analytical reporting
-- 
-- ## GitHub Repository:
-https://github.com/siam12345-ai/NeuroSync-AI
----
+### Phase 4: Testing & Deployment
+- [ ] Unit testing for APIs and frontend validation.
+- [ ] Focus Monitoring system and dashboard optimizations.
+- [ ] Deploy frontend on Vercel and backend on Render/AWS.
