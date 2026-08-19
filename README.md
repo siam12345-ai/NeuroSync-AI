@@ -16,6 +16,12 @@ The system provides personalized learning assistance, AI-powered recommendations
 **Team:** CSE4104-7D-T01  
 **Project:** NeuroSync AI  
 
+Team Leader      Abu Bakar Siam 
+
+| Team Member 1 | Md. Nasiruddin Shael 
+| Team Member 2 | Sefa Sultana 
+| Team Member 3 | Zeba Sabiha Promi |
+
 **Project Title:**  
 NeuroSync AI: An Intelligent Cognitive Learning and Human Behavior Analysis System
 
