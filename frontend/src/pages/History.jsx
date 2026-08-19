@@ -12,7 +12,7 @@ const fetchHistory = async () => {
 
 try{
 
-const res = await API.get(`/scan/${user.email}`);
+const res = await API.get(`/scan/`);
 
 setHistory(res.data);
 
