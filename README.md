@@ -16,12 +16,14 @@ The system provides personalized learning assistance, AI-powered recommendations
 **Team:** CSE4104-7D-T01  
 **Project:** NeuroSync AI  
 
-| Role              | Name                 |
-| ----------------- | -------------------- |
-| **Team Leader**   | Abu Bakar Siam       |
-| **Team Member 1** | Md. Nasiruddin Shael |
-| **Team Member 2** | Sefa Sultana         |
-| **Team Member 3** | Zeba Sabiha Promi    |
+## 👥 Team Members & Responsibilities
+
+| Member | Role | Main Responsibility |
+|---|---|---|
+| **Abu Bakar Siam** | **Team Leader & Full-Stack/AI Lead & Database Developer** | Project planning & coordination, GitHub management, system architecture, AI integration, MongoDB database design & management, authentication, data persistence, frontend-backend integration, testing, debugging, and final system integration |
+| **Sefa Sultana** | **Frontend Developer & UI/UX Designer** | React frontend development, UI/UX design, dashboard/pages, reusable components, responsive interface, navigation, and user experience |
+| **Nasir Shael** | **Frontend-Backend Integration Developer** | Frontend-backend coordination, API integration, authentication flow, data flow, integration testing, and frontend-backend debugging |
+| **Jeba Sabiha Promi** | **Backend Developer** | Node.js/Express API development, routes, controllers, backend logic, server-side functionality, API testing, and backend debugging |
 
 
 **Project Title:**  
