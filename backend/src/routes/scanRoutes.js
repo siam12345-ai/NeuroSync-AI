@@ -6,63 +6,85 @@ const router = express.Router();
 
 // Save Scan
 router.post("/save", verifyToken, async (req, res) => {
-
     try {
+        const {
+            result,
+            focusScore,
+            activityState,
+            interactionCount,
+            sessionDuration,
+            dataSource
+        } = req.body;
+        console.log("SCAN PAYLOAD RECEIVED:", {
+    result,
+    focusScore,
+    activityState,
+    interactionCount,
+    sessionDuration,
+    dataSource
+});
 
-        const { userEmail, result } = req.body;
+if (
+    focusScore === undefined ||
+    activityState === undefined ||
+    interactionCount === undefined ||
+    sessionDuration === undefined
+) {
+    return res.status(400).json({
+        success: false,
+        message: "Incomplete scan data. Please start a new scan."
+    });
+}
 
         const scan = new ScanHistory({
-            userEmail,
-            result
+            userEmail: req.user.email,
+            result,
+            focusScore,
+            activityState,
+            interactionCount,
+            sessionDuration,
+            dataSource
         });
 
         await scan.save();
 
-        res.json({
-            message: "Scan Saved Successfully"
+        res.status(201).json({
+            success: true,
+            message: "Scan saved successfully.",
+            scan
         });
 
-    }
-
-    catch (error) {
+    } catch (error) {
+        console.error("Save Scan Error:", error);
 
         res.status(500).json({
+            success: false,
             message: error.message
         });
-
     }
-
 });
 
-// Get Scan History (Protected)
+// Get Scan History
 router.get("/", verifyToken, async (req, res) => {
-
     try {
-
-        const scans = await ScanHistory.find({
-
-    userEmail: req.user.email
-
-}).sort({
-
-            createdAt: -1
-
-        });
+        const scans = await ScanHistory
+            .find({
+                userEmail: req.user.email
+            })
+            .sort({
+                createdAt: -1
+            });
 
         res.json(scans);
 
-    }
-
-    catch (error) {
+    } catch (error) {
+        console.error("Get Scan History Error:", error);
 
         res.status(500).json({
-
+            success: false,
             message: error.message
-
         });
-
     }
-
 });
 
 module.exports = router;

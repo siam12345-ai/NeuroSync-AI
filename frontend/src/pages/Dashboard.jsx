@@ -1,7 +1,7 @@
 import jsPDF from "jspdf";
 import "../App.css";
 import {useNavigate} from "react-router-dom";
-import {useState,useEffect} from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 
 import {
@@ -94,6 +94,12 @@ const [liveWave,setLiveWave]=useState(8);
 const [focusScore, setFocusScore] = useState(0);
 const [interactionCount, setInteractionCount] = useState(0);
 const [lastActivity, setLastActivity] = useState(Date.now());
+const [keyboardEvents, setKeyboardEvents] = useState(0);
+const [mouseEvents, setMouseEvents] = useState(0);
+const mouseEventsRef = useRef(0);
+const keyboardEventsRef = useRef(0);
+const interactionCountRef = useRef(0);
+const [sessionStart, setSessionStart] = useState(Date.now());
 
 const [brainState,setBrainState]=useState("Calm");
 
@@ -145,18 +151,64 @@ const brainData = [
 ];
 useEffect(() => {
 
-  const handleActivity = () => {
-    setInteractionCount((prev) => prev + 1);
-    setLastActivity(Date.now());
-  };
+    const handleMouseActivity = () => {
 
-  window.addEventListener("mousemove", handleActivity);
-  window.addEventListener("keydown", handleActivity);
+        const now = Date.now();
 
-  return () => {
-    window.removeEventListener("mousemove", handleActivity);
-    window.removeEventListener("keydown", handleActivity);
-  };
+        mouseEventsRef.current += 1;
+        interactionCountRef.current += 1;
+
+        setMouseEvents((prev) => prev + 1);
+
+        setInteractionCount((prev) => prev + 1);
+
+        setLastActivity(now);
+
+    };
+
+
+    const handleKeyboardActivity = (event) => {
+
+        if (event.repeat) return;
+
+        const now = Date.now();
+
+        keyboardEventsRef.current += 1;
+        interactionCountRef.current += 1;
+
+        setKeyboardEvents((prev) => prev + 1);
+
+        setInteractionCount((prev) => prev + 1);
+
+        setLastActivity(now);
+
+    };
+
+
+    window.addEventListener(
+        "mousedown",
+        handleMouseActivity
+    );
+
+    window.addEventListener(
+        "keydown",
+        handleKeyboardActivity
+    );
+
+
+    return () => {
+
+        window.removeEventListener(
+            "mousedown",
+            handleMouseActivity
+        );
+
+        window.removeEventListener(
+            "keydown",
+            handleKeyboardActivity
+        );
+
+    };
 
 }, []);
 
@@ -497,91 +549,175 @@ return new Date(date).toLocaleString();
 
 
 
-const startScan=()=>{
+const startScan = () => {
 
+    if (scanning) return;
 
-if(scanning)return;
+    // Capture starting values
+    const scanStartTime = Date.now();
 
+    const startMouseEvents = mouseEventsRef.current;
+    const startKeyboardEvents = keyboardEventsRef.current;
+    const startInteractionCount = interactionCountRef.current;
 
-setScanning(true);
+    setScanning(true);
+    setResult("");
+    setProgress(0);
 
-setResult("");
+    let value = 0;
 
-setProgress(0);
+    const interval = setInterval(async () => {
 
+        value += 10;
 
+        setProgress(value);
 
-let value=0;
+        if (value >= 100) {
 
+            clearInterval(interval);
 
-const interval=setInterval(async()=>{
+            const scanEndTime = Date.now();
 
+            const sessionDuration = Math.max(
+                1,
+                Math.round(
+                    (scanEndTime - scanStartTime) / 1000
+                )
+            );
 
-value+=10;
+            // Calculate activity ONLY during this scan
+            const scanMouseEvents = Math.max(
+               0,
+               mouseEventsRef.current - startMouseEvents
+);
 
+            const scanKeyboardEvents = Math.max(
+                0,
+              keyboardEventsRef.current - startKeyboardEvents
+);
 
-setProgress(value);
+            const scanInteractionCount = Math.max(
+               0,
+               interactionCountRef.current - startInteractionCount
+);
 
+            // Calculate focus score from this scan session
+            let finalFocusScore = 40;
 
+            if (scanInteractionCount >= 1) {
+                finalFocusScore += 10;
+            }
 
-if(value>=100){
+            if (scanInteractionCount >= 5) {
+                finalFocusScore += 15;
+            }
 
+            if (scanInteractionCount >= 10) {
+                finalFocusScore += 15;
+            }
 
+            if (scanInteractionCount >= 25) {
+                finalFocusScore += 15;
+            }
 
-clearInterval(interval);
+            finalFocusScore = Math.min(
+                95,
+                finalFocusScore
+            );
 
+            let finalActivityState = "";
 
-setScanning(false);
+            if (finalFocusScore >= 75) {
 
+                finalActivityState =
+                    "High Activity";
 
+            } else if (finalFocusScore >= 50) {
 
-const scanResult = `Cognitive Activity Analysis Complete ✅
-Focus Score: ${focusScore}%
-Activity State: ${brainState}
-Data Source: Behavioral Interaction Signals`;
+                finalActivityState =
+                    "Moderate Activity";
 
+            } else {
 
+                finalActivityState =
+                    "Low Activity";
+            }
 
-setResult(scanResult);
-setSuccessMessage("✅ Brain Scan Completed Successfully");
+            const scanResult = `Cognitive Activity Analysis Complete ✅
+Focus Score: ${finalFocusScore}%
+Activity State: ${finalActivityState}
+Mouse Movements: ${scanMouseEvents}
+Keyboard Activity: ${scanKeyboardEvents}
+Total Interactions: ${scanInteractionCount}
+Active Time: ${sessionDuration}s
+Data Source: Behavioral Interaction Signals
+Analysis Type: Non-EEG Behavioral Cognitive Activity Estimation`;
 
+            // Update UI
+            setFocusScore(finalFocusScore);
+            setBrainState(finalActivityState);
 
+            setResult(scanResult);
 
+            setScanning(false);
 
-await API.post("/scan/save",{
+            setSuccessMessage(
+                "✅ Brain Scan Completed Successfully"
+            );
 
-userEmail:user.email,
+                      try {
 
-result:scanResult
+                console.log("FINAL SCAN PAYLOAD:", {
+                    result: scanResult,
+                    focusScore: finalFocusScore,
+                    activityState: finalActivityState,
+                    interactionCount: scanInteractionCount,
+                    sessionDuration: sessionDuration,
+                    dataSource: "Behavioral Interaction Signals"
+                });
 
-});
+                await API.post("/scan/save", {
 
+                    result: scanResult,
 
+                    focusScore: finalFocusScore,
 
-setHistory([
+                    activityState:
+                        finalActivityState,
 
-{
-result:scanResult,
-createdAt:new Date()
-},
+                    interactionCount:
+                        scanInteractionCount,
 
-...history
+                    sessionDuration:
+                        sessionDuration,
 
-]);
-setTimeout(()=>{
+                    dataSource:
+                        "Behavioral Interaction Signals"
+                });
 
-setSuccessMessage("");
+                const historyResponse =
+                    await API.get("/scan");
 
-},3000);
+                setHistory(
+                    historyResponse.data
+                );
 
+            } catch (error) {
 
-}
+                console.error(
+                    "Scan Save Error:",
+                    error.response?.data ||
+                    error.message
+                );
 
+                setErrorMessage(
+                    "Scan completed, but history could not be saved."
+                );
+            }
 
+        }
 
-},300);
-
-
+    }, 1000);
 
 };
 const loadChatHistory = async () => {

@@ -7,6 +7,14 @@ const aiChat = async (req, res) => {
 
         const { message, user } = req.body;
 
+        // Validate AI chat message
+        if (typeof message !== "string" || !message.trim()) {
+    return res.status(400).json({
+        success: false,
+        message: "Message must be a non-empty string."
+    });
+}
+
         // Authenticated user identity from JWT
         const userId = req.user.id;
 
@@ -41,11 +49,11 @@ const getChatHistory = async (req, res) => {
 
         const userId = req.user.id;
 
-const history = await ChatHistory.find({
-    userId
-})
-.sort({ createdAt: -1 })
-.limit(50);
+        const history = await ChatHistory.find({
+            userId
+        })
+        .sort({ createdAt: -1 })
+        .limit(50);
 
         res.status(200).json({
 
