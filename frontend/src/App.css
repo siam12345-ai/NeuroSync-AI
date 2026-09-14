@@ -3947,9 +3947,198 @@ align-items:flex-start;
     }
 
     /* Logout */
-    
+
     .logout,
     .side-logout {
         width:100%;
+    }
+}
+/* =====================================================
+   FINAL LOGIN PAGE FIX
+===================================================== */
+
+/* Login Card */
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    box-sizing: border-box;
+}
+
+/* NeuroSync AI Logo / Brand */
+.auth-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-header .logo {
+    display: block;
+    width: 100%;
+    margin: 0 0 10px 0;
+    font-size: 32px;
+    line-height: 1.2;
+    color: #22d3ee;
+    white-space: nowrap;
+    text-align: center;
+}
+
+.auth-header .subtitle {
+    display: block;
+    width: 100%;
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+/* Login Text */
+.login-text {
+    text-align: center;
+    margin: 8px 0 22px;
+}
+
+/* Form */
+.form-group {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Remember + Forgot Password */
+.form-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+/* Login Button */
+.auth-card .login-btn {
+    width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 20px 0 0;
+    padding: 15px 20px;
+    font-size: 17px;
+}
+
+/* Loading inside Login Button */
+.auth-card .login-btn .loading-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* Register Section */
+.register-section {
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.register-section a {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* Password Checkbox */
+.show-password {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* =====================================================
+   LOGIN MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .auth-card {
+        width: 90%;
+        max-width: 430px;
+        padding: 35px 25px;
+    }
+
+    .auth-header .logo {
+        font-size: 28px;
+    }
+
+    .auth-card h2 {
+        font-size: 24px;
+    }
+
+    .auth-card .login-btn {
+        font-size: 16px;
+        padding: 14px 18px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .auth-card {
+        width: 94%;
+        max-width: 400px;
+        padding: 30px 20px;
+    }
+
+    .auth-header .logo {
+        font-size: 23px;
+        white-space: nowrap;
+    }
+
+    .auth-header .subtitle {
+        font-size: 13px;
+    }
+
+    .login-text {
+        font-size: 14px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .auth-card .login-btn {
+        width: 100% !important;
+        padding: 13px 16px;
+    }
+
+    .register-section {
+        margin-top: 22px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .auth-card {
+        width: 96%;
+        padding: 25px 16px;
+    }
+
+    .auth-header .logo {
+        font-size: 21px;
     }
 }
