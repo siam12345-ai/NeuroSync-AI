@@ -4821,3 +4821,406 @@ align-items:flex-start;
         font-size: 19px;
     }
 }
+/* =========================================================
+   FINAL MOBILE HOME + NAVBAR FIX
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .header-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 18px;
+        padding: 18px 14px 0;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Logo stays together */
+    .logo-wrapper {
+        width: auto;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        flex-shrink: 0;
+    }
+
+    .logo-icon {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        object-fit: contain;
+    }
+
+    .logo-text {
+        display: block !important;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1.25rem;
+        line-height: 1.2;
+        white-space: nowrap !important;
+        word-break: normal !important;
+        overflow-wrap: normal !important;
+        flex-shrink: 0;
+    }
+
+
+    /* ---------- LOGIN / REGISTER ---------- */
+
+    .auth-cloud-container {
+        width: auto;
+        min-width: 0;
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 8px 10px;
+        box-sizing: border-box;
+        border-radius: 40px;
+        position: relative;
+        z-index: 11;
+    }
+
+    .btn-auth-item {
+        width: auto;
+        min-width: 92px;
+        padding: 9px 18px;
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.2;
+        white-space: nowrap;
+        box-sizing: border-box;
+        display: block;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 55px 15px 45px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .hero h1 {
+        position: relative;
+        z-index: 2;
+        margin: 0 0 18px 0;
+        padding: 0;
+        font-size: 32px;
+        line-height: 1.25;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+    }
+
+    .hero h2 {
+        position: relative;
+        z-index: 2;
+        margin: 0 0 15px 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1.35;
+        white-space: normal;
+    }
+
+    .hero p {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+        margin: 0 auto 27px;
+        padding: 0;
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .hero button {
+        position: relative;
+        z-index: 2;
+        margin-top: 5px;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .header-container {
+        padding-left: 10px;
+        padding-right: 10px;
+        gap: 15px;
+    }
+
+    .logo-text {
+        font-size: 1.15rem;
+    }
+
+    .logo-icon {
+        width: 30px;
+        height: 30px;
+        flex-basis: 30px;
+    }
+
+    .auth-cloud-container {
+        gap: 7px;
+        padding: 7px 8px;
+    }
+
+    .btn-auth-item {
+        min-width: 85px;
+        padding: 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding-top: 48px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+}
+
+
+/* =========================================================
+   CHATBOT CARD GLOW RESTORE
+   ========================================================= */
+
+/* Main chatbot / AI chat card */
+.ai-chat-card,
+.chatbot-card,
+.chat-card,
+.ai-chat {
+    position: relative;
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.25),
+        0 0 20px rgba(34, 211, 238, 0.18),
+        0 0 35px rgba(124, 58, 237, 0.12) !important;
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+/* Chatbot glow on hover */
+.ai-chat-card:hover,
+.chatbot-card:hover,
+.chat-card:hover,
+.ai-chat:hover {
+    box-shadow:
+        0 0 10px rgba(34, 211, 238, 0.45),
+        0 0 25px rgba(34, 211, 238, 0.30),
+        0 0 45px rgba(124, 58, 237, 0.20) !important;
+}
+
+
+/* If chatbot is one of the dashboard cards */
+.dashboard-card.ai-chat-card,
+.dashboard-card.chatbot-card,
+.dashboard-card.chat-card {
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.25),
+        0 0 20px rgba(34, 211, 238, 0.18),
+        0 0 35px rgba(124, 58, 237, 0.12) !important;
+}
+/* =========================================================
+   NEUROSYNC AI CHATBOT CARD - GLOW RESTORE
+   ========================================================= */
+
+.chatbot-panel {
+    position: relative !important;
+    border: 1px solid rgba(34, 211, 238, 0.45) !important;
+
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.35),
+        0 0 18px rgba(34, 211, 238, 0.25),
+        0 0 35px rgba(124, 58, 237, 0.20) !important;
+
+    transition:
+        box-shadow 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease !important;
+}
+
+/* Chatbot card hover glow */
+.chatbot-panel:hover {
+    border-color: rgba(34, 211, 238, 0.75) !important;
+
+    box-shadow:
+        0 0 10px rgba(34, 211, 238, 0.55),
+        0 0 25px rgba(34, 211, 238, 0.35),
+        0 0 45px rgba(124, 58, 237, 0.30) !important;
+}
+
+
+/* =========================================================
+   MOBILE CHATBOT
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .chatbot-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+
+        box-shadow:
+            0 0 8px rgba(34, 211, 238, 0.35),
+            0 0 18px rgba(34, 211, 238, 0.25),
+            0 0 30px rgba(124, 58, 237, 0.18) !important;
+    }
+
+    .chatbot-header {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chatbot-body {
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .chatbot-input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .chatbot-input input {
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .chatbot-input button {
+        flex-shrink: 0;
+    }
+}
+/* =========================================================
+   NEUROSYNC AI CHAT - MESSAGE GLOW RESTORE
+   ========================================================= */
+
+/* AI Chat Card */
+.chatbot-panel {
+    position: relative;
+    border: 1px solid rgba(34, 211, 238, 0.45) !important;
+
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.25),
+        0 0 20px rgba(34, 211, 238, 0.15),
+        0 0 35px rgba(124, 58, 237, 0.12) !important;
+}
+
+
+/* =========================================================
+   USER MESSAGE GLOW
+   ========================================================= */
+
+.chatbot-panel .user-message {
+    position: relative;
+
+    border: 1px solid rgba(34, 211, 238, 0.65) !important;
+
+    box-shadow:
+        0 0 6px rgba(34, 211, 238, 0.45),
+        0 0 14px rgba(34, 211, 238, 0.25) !important;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.chatbot-panel .user-message:hover {
+    box-shadow:
+        0 0 8px rgba(34, 211, 238, 0.65),
+        0 0 18px rgba(34, 211, 238, 0.35) !important;
+}
+
+
+/* =========================================================
+   AI ANSWER GLOW
+   ========================================================= */
+
+.chatbot-panel .bot-message {
+    position: relative;
+
+    border: 1px solid rgba(124, 58, 237, 0.60) !important;
+
+    box-shadow:
+        0 0 6px rgba(124, 58, 237, 0.45),
+        0 0 14px rgba(124, 58, 237, 0.25) !important;
+
+    transition: box-shadow 0.3s ease;
+}
+
+.chatbot-panel .bot-message:hover {
+    box-shadow:
+        0 0 8px rgba(124, 58, 237, 0.65),
+        0 0 18px rgba(124, 58, 237, 0.35) !important;
+}
+
+
+/* =========================================================
+   AI TYPING MESSAGE GLOW
+   ========================================================= */
+
+.chatbot-panel .typing-message {
+    border: 1px solid rgba(34, 211, 238, 0.45) !important;
+
+    box-shadow:
+        0 0 6px rgba(34, 211, 238, 0.35),
+        0 0 14px rgba(34, 211, 238, 0.20) !important;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .chatbot-panel {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .chatbot-panel .user-message,
+    .chatbot-panel .bot-message,
+    .chatbot-panel .typing-message {
+        max-width: 90%;
+        box-sizing: border-box;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+}
