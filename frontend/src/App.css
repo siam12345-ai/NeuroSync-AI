@@ -4142,3 +4142,156 @@ align-items:flex-start;
         font-size: 21px;
     }
 }
+/* =====================================================
+   FINAL LOGIN + AUTH ALIGNMENT FIX
+===================================================== */
+
+.auth-card {
+    width: 100%;
+    max-width: 430px;
+    box-sizing: border-box;
+}
+
+/* NeuroSync AI logo */
+.auth-card .auth-header {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.auth-card .auth-header .logo {
+    display: block;
+    width: 100%;
+    margin: 0 0 12px 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.25;
+    white-space: nowrap;
+    font-size: 32px;
+}
+
+/* Subtitle */
+.auth-card .auth-header .subtitle {
+    display: block;
+    width: 100%;
+    margin: 0 0 25px 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Welcome Back */
+.auth-card .auth-header h2 {
+    margin: 0 0 10px 0;
+    text-align: center;
+}
+
+/* Login description */
+.auth-card .login-text {
+    margin: 0;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* Form */
+.auth-card form {
+    width: 100%;
+}
+
+/* Login button */
+.auth-card .login-btn {
+    width: 100% !important;
+    display: block;
+    box-sizing: border-box;
+    margin: 20px 0 0 0;
+    padding: 15px 20px;
+}
+
+/* Register section */
+.auth-card .register-section {
+    width: 100%;
+    text-align: center;
+    margin: 28px 0 0 0;
+}
+
+.auth-card .register-section p {
+    margin: 0 0 8px 0;
+    line-height: 1.5;
+}
+
+.auth-card .register-section a {
+    display: inline-block;
+}
+
+/* =====================================================
+   MOBILE LOGIN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .auth-card {
+        width: 90%;
+        max-width: 430px;
+        padding: 35px 25px;
+    }
+
+    .auth-card .auth-header .logo {
+        font-size: 28px;
+    }
+
+    .auth-card .auth-header h2 {
+        font-size: 24px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .auth-card {
+        width: 94%;
+        max-width: 400px;
+        padding: 30px 20px;
+    }
+
+    .auth-card .auth-header .logo {
+        font-size: 23px;
+        white-space: nowrap;
+    }
+
+    .auth-card .auth-header .subtitle {
+        font-size: 13px;
+    }
+
+    .auth-card .login-text {
+        font-size: 14px;
+    }
+
+    .auth-card .login-btn {
+        width: 100% !important;
+        padding: 13px 16px;
+    }
+
+    .auth-card .register-section {
+        margin-top: 24px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL SCREEN
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .auth-card {
+        width: 96%;
+        padding: 25px 16px;
+    }
+
+    .auth-card .auth-header .logo {
+        font-size: 21px;
+    }
+}
