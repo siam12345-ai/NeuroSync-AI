@@ -4696,3 +4696,128 @@ align-items:flex-start;
         padding: 4px 5px;
     }
 }
+/* =====================================================
+   FINAL HOME / HERO SPACING FIX
+===================================================== */
+
+.hero {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 30px 60px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Main NeuroSync AI heading */
+.hero h1 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 22px 0;
+    padding: 0;
+    line-height: 1.25;
+    font-size: 52px;
+}
+
+/* Brainwave heading */
+.hero h2 {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 18px 0;
+    padding: 0;
+    line-height: 1.35;
+    font-size: 30px;
+}
+
+/* Description */
+.hero p {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    max-width: 700px;
+}
+
+/* Start Analysis */
+.hero button {
+    position: relative;
+    z-index: 2;
+    margin-top: 5px;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 60px 20px 45px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+        margin-bottom: 18px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 15px;
+        margin-bottom: 25px;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 50px 15px 40px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+        margin-bottom: 13px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.6;
+        margin-bottom: 22px;
+    }
+}
+
+
+/* =====================================================
+   VERY SMALL MOBILE
+===================================================== */
+
+@media (max-width: 360px) {
+
+    .hero {
+        padding: 45px 12px 35px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+}
