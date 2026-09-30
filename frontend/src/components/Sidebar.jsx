@@ -164,15 +164,15 @@ menu.map((item)=>(
 
 
 <button
-className="side-logout"
-onClick={()=>{
-localStorage.removeItem("user");
-window.location.href="/";
-}}
+  className="side-logout"
+  onClick={() => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
+    window.location.replace("/login");
+  }}
 >
-
-🚪 Logout
-
+  🚪 Logout
 </button>
 
 
