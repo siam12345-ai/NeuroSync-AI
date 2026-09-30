@@ -262,12 +262,14 @@ name="remember"
 </label>
 
 <a
-href="#"
-className="forgot-password"
+  href="/forgot-password"
+  className="forgot-password"
+  onClick={(e) => {
+    e.preventDefault();
+    navigate("/forgot-password");
+  }}
 >
-
-Forgot Password?
-
+  Forgot Password?
 </a>
 
 </div>

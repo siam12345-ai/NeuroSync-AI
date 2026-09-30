@@ -14,6 +14,8 @@ import BrainScan from "./pages/BrainScan";
 import Analytics from "./pages/Analytics";
 import History from "./pages/History";
 import Profile from "./pages/Profile";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 
@@ -52,8 +54,14 @@ path="/register"
 element={<Register/>}
 />
 
-
-
+<Route
+  path="/forgot-password"
+  element={<ForgotPassword/>}
+/>
+<Route
+  path="/reset-password/:token"
+  element={<ResetPassword/>}
+/>
 
 
 
