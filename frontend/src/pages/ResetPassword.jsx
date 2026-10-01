@@ -42,6 +42,7 @@ function ResetPassword() {
           password
         }
       );
+      console.log("RESET RESPONSE:", res.data);
 
       setMessage(
         res.data.message ||

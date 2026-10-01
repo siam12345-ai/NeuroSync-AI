@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const crypto = require("crypto");
+const { Resend } = require("resend");
 const {
 successResponse,
 errorResponse
@@ -363,17 +364,68 @@ const forgotPassword = async (req, res) => {
 
     await user.save();
 
-    // Temporary development-only reset URL
-    const resetURL =
-      `http://localhost:5173/reset-password/${resetToken}`;
+// Create production reset URL
 
-    console.log("PASSWORD RESET URL:", resetURL);
+const resetURL =
+  `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
-    return successResponse(
-      res,
-      200,
-      "Password reset instructions have been generated."
-    );
+// Send password reset email
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+await resend.emails.send({
+  from: "NeuroSync AI <onboarding@resend.dev>",
+  to: user.email,
+  subject: "Reset Your NeuroSync AI Password",
+  html: `
+    <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+      <h2>NeuroSync AI - Password Reset</h2>
+
+      <p>Hello ${user.name || "User"},</p>
+
+      <p>
+        We received a request to reset your NeuroSync AI password.
+      </p>
+
+      <p>
+        Click the button below to create a new password:
+      </p>
+
+      <p>
+        <a
+          href="${resetURL}"
+          style="
+            display: inline-block;
+            padding: 12px 20px;
+            background: #4f46e5;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+          "
+        >
+          Reset Password
+        </a>
+      </p>
+
+      <p>
+        This link will expire in 15 minutes.
+      </p>
+
+      <p>
+        If you did not request a password reset, you can safely ignore this email.
+      </p>
+
+      <p>
+        — NeuroSync AI Team
+      </p>
+    </div>
+  `
+});
+
+return successResponse(
+  res,
+  200,
+  "If an account exists with this email, password reset instructions have been sent."
+);
 
   } catch (error) {
 
